@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'mcr.microsoft.com/dotnet/sdk:8.0'
+        }
+    }
 
     stages {
         stage('Checkout') {
@@ -13,6 +17,7 @@ pipeline {
                 sh 'dotnet restore'
             }
         }
+
         stage('Build') {
             steps {
                 sh 'dotnet build --no-restore'
@@ -21,7 +26,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'dotnet test --no-build --verbosity normal'
+                sh 'dotnet test --no-build'
             }
         }
     }
