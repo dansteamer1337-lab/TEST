@@ -3,21 +3,13 @@ pipeline {
 
     stages {
         stage('Restore') {
-            steps {
-                sh 'dotnet restore SimpleApp.sln'
-            }
+            steps { sh 'dotnet restore ci.sln' }
         }
-
         stage('Build') {
-            steps {
-                sh 'dotnet build SimpleApp.sln --no-restore'
-            }
+            steps { sh 'dotnet build ci.sln --no-restore' }
         }
-
         stage('Test') {
-            steps {
-                sh 'dotnet test SimpleApp.sln --no-build'
-            }
+            steps { sh 'dotnet test ci.sln --no-build' }
         }
     }
 }
