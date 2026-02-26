@@ -7,10 +7,10 @@ namespace SimpleApp
         public static void Main(string[] args)
         {
             Console.WriteLine("Введите первое число:");
-            string input1 = Console.ReadLine();
+            string? input1 = Console.ReadLine();
 
             Console.WriteLine("Введите второе число:");
-            string input2 = Console.ReadLine();
+            string? input2 = Console.ReadLine();
 
             if (int.TryParse(input1, out int number1) &&
                 int.TryParse(input2, out int number2))
@@ -30,4 +30,3 @@ namespace SimpleApp
         }
     }
 }
-//asdasd
